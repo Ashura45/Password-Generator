@@ -1,6 +1,5 @@
 import random
 
-
 def opc():
     try:
         long = int(input('Напишите длину пароля. пароль должен быть больше 3 : '))
@@ -65,12 +64,16 @@ def password_generator():
         password_list.append(password)
         print(password, 'текущий пароль. сгенерировать заново?')
         print(f'Предыдущие пароли:', ', '.join(password_list))
-        generate_it_again = input('сгенерировать заново с текущими настройками? y or n: ')
+        generate_it_again = input('сгенерировать заново? y or n: ')
         if generate_it_again == 'n':
-            return password
+            return ', '.join(password_list)
         elif generate_it_again == 'y':
-            print('cefrfesf')
-            password = ''
+            new_setting = input('Изменить настройки? y or n')
+            if new_setting == 'y':
+                password = ''
+                long, with_num, with_letters = opc()
+            else:
+                password = ''
         else:
             print('Только y or n')
             generate_it_again = input('сгенерировать заново с текущими настройками? y or n')
